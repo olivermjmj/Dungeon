@@ -20,7 +20,7 @@ public class Enemy extends Character{
             break;
             case "heavy"    :   attackDMG = this.heavyAttack(character);     takeDMG(character, attackDMG);
             break;
-            default         :   System.out.println("Something went wrong with tryToAttack");    attackDMG = 0;    takeDMG(character, attackDMG);
+            default         :   System.out.println("Something went wrong with tryToAttack for: Enemy");    attackDMG = 0;    takeDMG(character, attackDMG);
             break;
         }
 

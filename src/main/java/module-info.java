@@ -10,7 +10,10 @@ module com.nation.dungeon {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires java.sql;
 
     opens com.nation.dungeon to javafx.fxml;
     exports com.nation.dungeon;
+    exports com.nation.dungeon.util;
+    opens com.nation.dungeon.util to javafx.fxml;
 }

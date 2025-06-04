@@ -22,7 +22,7 @@ public class Player extends Character{
             break;
             case "heavy"    :   attackDMG = this.heavyAttack(character);     this.takeDMG(character, attackDMG);
             break;
-            default: System.out.println("Something went wrong with tryToAttack");   attackDMG = 0;    takeDMG(character, attackDMG);
+            default: System.out.println("Something went wrong with tryToAttack for: Player");   attackDMG = 0;    takeDMG(character, attackDMG);
             break;
         }
 
@@ -51,7 +51,7 @@ public class Player extends Character{
     }
 
     private void setPassword(String password) {
-        if(password != null && password.length() > 3) {
+        if(password != null && password.length() >= 4) {
             this.password = password;
         }
     }

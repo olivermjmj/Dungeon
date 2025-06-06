@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 public class ItemCombiner {
 
+    private ArrayList<Item> weaponPictures;
     private final String weaponPath = "src/main/resources/images/weaponImages";
 
 
@@ -32,5 +33,25 @@ public class ItemCombiner {
         }
 
         return weaponImages;
+    }
+
+    public void setWeaponNames() {
+
+        weaponPictures.getFirst().setDescription("");
+        weaponPictures.get(1).setDescription("");
+        weaponPictures.get(2).setDescription("");
+        weaponPictures.get(3).setDescription("");
+        weaponPictures.get(4).setDescription("");
+        weaponPictures.get(5).setDescription("");
+    }
+
+    public void setWeaponStats() {
+
+        weaponPictures.getFirst().setDamageModifier(1);
+        weaponPictures.get(1).setDamageModifier(1);
+        weaponPictures.get(2).setDamageModifier(1);
+        weaponPictures.get(3).setDamageModifier(1);
+        weaponPictures.get(4).setDamageModifier(1);
+        weaponPictures.get(5).setDamageModifier(1);
     }
 }

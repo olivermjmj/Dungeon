@@ -11,6 +11,7 @@ module com.nation.dungeon {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
     requires java.sql;
+    requires java.net.http;
 
     opens com.nation.dungeon to javafx.fxml;
     exports com.nation.dungeon;

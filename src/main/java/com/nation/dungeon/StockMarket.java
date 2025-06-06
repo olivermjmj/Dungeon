@@ -7,6 +7,9 @@ import java.net.URI;
 
 public class StockMarket {
 
+    //website link: https://finnhub.io/dashboard
+    //apiKey = d11h591r01qjtpe6rl70d11h591r01qjtpe6rl7g
+
     private final String apiKey;
     private final HttpClient client;
 

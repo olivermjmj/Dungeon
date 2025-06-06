@@ -1,13 +1,16 @@
 package com.nation.dungeon.Merchant;
 
+import javafx.scene.image.Image;
+
+
 public class Item {
 
+    private final Image image;
     private String description;
     private double damageModifier;
 
-    public Item(String description, double damageModifier) {
-        this.description = description;
-        this.damageModifier = damageModifier;
+    public Item(Image file) {
+        this.image = file;
     }
 
     //setters
@@ -26,5 +29,9 @@ public class Item {
 
     public double getDamageModifier() {
         return this.damageModifier;
+    }
+
+    public Image getImage() {
+        return image;
     }
 }

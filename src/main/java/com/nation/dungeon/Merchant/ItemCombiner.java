@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class ItemCombiner {
 
-    private ArrayList<Item> weaponPictures;
+    private ArrayList<Item> weaponPictures = getWeaponPictures();
     private final String weaponPath = "src/main/resources/images/weaponImages";
 
 

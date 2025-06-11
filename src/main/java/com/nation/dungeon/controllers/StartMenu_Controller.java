@@ -24,6 +24,10 @@ public class StartMenu_Controller {
             SceneManager.switchScene("startMenu.fxml");
         });
 
+        registre.setOnAction(action -> {
+
+        });
+
         exit.setOnAction(action -> {
             System.exit(0);
         });

@@ -7,7 +7,7 @@
 
 <StackPane fx:id="root" xmlns="http://javafx.com/javafx/17.0.12"
            xmlns:fx="http://javafx.com/fxml/1"
-           fx:controller="com.nation.dungeon.controllers.Controller">
+           fx:controller="com.nation.dungeon.controllers.StartMenu_Controller">
    <ImageView fx:id="background">
       <Image url="@../images/images/background/startMenu.png"/>
    </ImageView>

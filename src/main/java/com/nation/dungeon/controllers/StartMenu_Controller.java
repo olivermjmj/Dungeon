@@ -6,7 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 
-public class Controller {
+public class StartMenu_Controller {
 
     @FXML private Button login;
     @FXML private Button registre;

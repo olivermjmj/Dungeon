@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<StackPane fx:id="root" xmlns="http://javafx.com/javafx/17.0.12"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.nation.dungeon.Controller">
+   <ImageView fx:id="background">
+      <Image url="@images/images/background/startMenu.png"/>
+   </ImageView>
+
+   <VBox alignment="CENTER" spacing="20.0">
+      <Button fx:id="login" text="Login" prefWidth="100.0"/>
+      <Button fx:id="registre" text="Registre" prefWidth="100.0"/>
+      <Button fx:id="exit" text="Exit" prefWidth="100.0"/>
+   </VBox>
+</StackPane>
+
+

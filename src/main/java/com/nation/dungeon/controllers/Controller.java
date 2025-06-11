@@ -1,5 +1,6 @@
-package com.nation.dungeon;
+package com.nation.dungeon.controllers;
 
+import com.nation.dungeon.util.SceneManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
@@ -18,5 +19,9 @@ public class Controller {
     public void initialize() {
         background.fitWidthProperty().bind(root.widthProperty());
         background.fitHeightProperty().bind(root.heightProperty());
+
+        login.setOnAction(action -> {
+            SceneManager.switchScene("Borgen.png");
+        });
     }
 }

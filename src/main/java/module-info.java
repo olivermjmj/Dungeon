@@ -17,4 +17,6 @@ module com.nation.dungeon {
     exports com.nation.dungeon;
     exports com.nation.dungeon.util;
     opens com.nation.dungeon.util to javafx.fxml;
+    exports com.nation.dungeon.controllers;
+    opens com.nation.dungeon.controllers to javafx.fxml;
 }

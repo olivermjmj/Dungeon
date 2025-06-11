@@ -1,5 +1,6 @@
 package com.nation.dungeon;
 
+import com.nation.dungeon.util.SceneManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -11,7 +12,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("startMenu.fxml"));
+        SceneManager.setStage(stage);
+
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("fxml/startMenu.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 853, 480);
         stage.setTitle("Hello!");
         stage.setScene(scene);

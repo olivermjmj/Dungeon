@@ -1,4 +1,4 @@
-package com.nation.dungeon.Merchant;
+package com.nation.dungeon.merchant;
 
 import javafx.scene.image.Image;
 

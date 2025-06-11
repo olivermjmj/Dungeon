@@ -23,5 +23,9 @@ public class StartMenu_Controller {
         login.setOnAction(action -> {
             SceneManager.switchScene("startMenu.fxml");
         });
+
+        exit.setOnAction(action -> {
+            System.exit(0);
+        });
     }
 }

@@ -12,6 +12,7 @@ module com.nation.dungeon {
     requires com.almasb.fxgl.all;
     requires java.sql;
     requires java.net.http;
+    requires javafx.media;
 
     opens com.nation.dungeon to javafx.fxml;
     exports com.nation.dungeon;

@@ -21,7 +21,7 @@ public class Controller {
         background.fitHeightProperty().bind(root.heightProperty());
 
         login.setOnAction(action -> {
-            SceneManager.switchScene("Borgen.png");
+            SceneManager.switchScene("startMenu.fxml");
         });
     }
 }

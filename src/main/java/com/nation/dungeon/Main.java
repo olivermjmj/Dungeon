@@ -1,5 +1,6 @@
 package com.nation.dungeon;
 
+import com.nation.dungeon.controllers.CreateCharacterMenu_Controller;
 import com.nation.dungeon.util.SceneManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -16,8 +17,9 @@ public class Main extends Application {
 
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("fxml/startMenu.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 853, 480);
-        stage.setTitle("Hello!");
+        stage.setTitle("Mænd der slås");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 

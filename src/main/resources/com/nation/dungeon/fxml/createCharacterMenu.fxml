@@ -93,5 +93,15 @@
         -fx-font-size: 28;
         -fx-font-weight: bold;
         -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0, 0, 0);" text="boosts health and health regeneration" />
+
+
+        <Button fx:id="done" text="Done" prefWidth="100.0"
+                style="-fx-background-color: #FFD700;
+                   -fx-cursor: hand;
+                   -fx-text-fill: #000000;
+                   -fx-font-family: 'Comic Sans MS';
+                   -fx-font-size: 14;
+                   -fx-font-weight: bold;
+                   -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0, 0, 0);" />
     </VBox>
 </StackPane>

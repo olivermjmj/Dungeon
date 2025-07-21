@@ -1,5 +1,7 @@
 package com.nation.dungeon.controllers;
 
+import com.nation.dungeon.util.GameManager;
+import com.nation.dungeon.util.SceneManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -10,6 +12,7 @@ import javafx.scene.layout.StackPane;
 
 public class CreateCharacterMenu_Controller {
 
+    @FXML private Button done;
     @FXML private Label vitalityPoint;
     @FXML private Button vitalityPlus;
     @FXML private Button vitalityMinus;
@@ -43,6 +46,10 @@ public class CreateCharacterMenu_Controller {
         vitalityPlus.setOnAction(action -> {setVitalityPlus(vitalityPoint);});
         vitalityMinus.setOnAction(action -> {setVitalityMinus(vitalityPoint);});
 
+        //Next scene: City menu
+        done.setOnAction(action -> {
+            SceneManager.switchScene("cityMenu.fxml");
+        });
 
 
         //Fxml styling
@@ -94,7 +101,7 @@ public class CreateCharacterMenu_Controller {
     private void setStrengthMinus(Label skillLabel) {
         currentSkill = Integer.parseInt(strengthPoint.getText());
 
-        if(currentSkill > 0) {
+        if(currentSkill > 1) {
             remainingSkillPoints++;
             currentSkill--;
 
@@ -118,7 +125,7 @@ public class CreateCharacterMenu_Controller {
     private void setVitalityMinus(Label skillLabel) {
         currentSkill = Integer.parseInt(vitalityPoint.getText());
 
-        if(currentSkill > 0) {
+        if(currentSkill > 1) {
             remainingSkillPoints++;
             currentSkill--;
 

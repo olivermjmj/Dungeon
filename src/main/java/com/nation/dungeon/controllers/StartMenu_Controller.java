@@ -1,5 +1,6 @@
 package com.nation.dungeon.controllers;
 
+import com.nation.dungeon.util.GameManager;
 import com.nation.dungeon.util.SceneManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

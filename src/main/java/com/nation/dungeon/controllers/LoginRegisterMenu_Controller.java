@@ -3,15 +3,18 @@ package com.nation.dungeon.controllers;
 import com.nation.dungeon.util.SceneManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
 
-public class StartMenu_Controller {
+public class LoginRegisterMenu_Controller {
+    @FXML private TextField usernameField;
+    @FXML private PasswordField passwordField;
 
-    @FXML private Button play;
-    @FXML private Button guest;
-    @FXML private Button exit;
+    @FXML private Button login;
+    @FXML private Button register;
+    @FXML private Button back;
 
     @FXML private ImageView background;
     @FXML private StackPane root;
@@ -21,21 +24,21 @@ public class StartMenu_Controller {
         background.fitWidthProperty().bind(root.widthProperty());
         background.fitHeightProperty().bind(root.heightProperty());
 
-        play.setOnAction(action -> {
+        login.setOnAction(action -> {
             SceneManager.switchScene("loginRegisterMenu.fxml");
         });
 
-        guest.setOnAction(action -> {
+        register.setOnAction(action -> {
             SceneManager.switchScene("createCharacterMenu.fxml");
         });
 
-        exit.setOnAction(action -> {
-            System.exit(0);
+        back.setOnAction(action -> {
+            SceneManager.switchScene("startMenu.fxml");
         });
 
         //Fxml styling
-        play.setOnMouseEntered(action -> {
-            play.setStyle("""
+        login.setOnMouseEntered(action -> {
+            login.setStyle("""
                     -fx-background-color: #FFD700;
                                        -fx-cursor: hand;
                                        -fx-text-fill: #000000;
@@ -51,8 +54,8 @@ public class StartMenu_Controller {
                     """);
         });
 
-        play.setOnMouseExited(action -> {
-            play.setStyle("""
+        login.setOnMouseExited(action -> {
+            login.setStyle("""
                     -fx-background-color: #FFD700;
                                        -fx-cursor: hand;
                                        -fx-text-fill: #000000;
@@ -63,8 +66,8 @@ public class StartMenu_Controller {
                     """);
         });
 
-        guest.setOnMouseEntered(action -> {
-            guest.setStyle("""
+        register.setOnMouseEntered(action -> {
+            register.setStyle("""
                     -fx-background-color: #FFD700;
                                        -fx-cursor: hand;
                                        -fx-text-fill: #000000;
@@ -80,8 +83,8 @@ public class StartMenu_Controller {
                     """);
         });
 
-        guest.setOnMouseExited(action -> {
-            guest.setStyle("""
+        register.setOnMouseExited(action -> {
+            register.setStyle("""
                     -fx-background-color: #FFD700;
                                       -fx-cursor: hand;
                                       -fx-text-fill: #000000;
@@ -92,8 +95,8 @@ public class StartMenu_Controller {
                     """);
         });
 
-        exit.setOnMouseEntered(action -> {
-            exit.setStyle("""
+        back.setOnMouseEntered(action -> {
+            back.setStyle("""
                     -fx-background-color: #FFD700;
                                        -fx-cursor: hand;
                                        -fx-text-fill: #000000;
@@ -109,8 +112,8 @@ public class StartMenu_Controller {
                     """);
         });
 
-        exit.setOnMouseExited(action -> {
-            exit.setStyle("""
+        back.setOnMouseExited(action -> {
+            back.setStyle("""
                     -fx-background-color: #FFD700;
                                        -fx-cursor: hand;
                                        -fx-text-fill: #000000;

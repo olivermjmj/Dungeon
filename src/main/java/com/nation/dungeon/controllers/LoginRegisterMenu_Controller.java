@@ -1,5 +1,7 @@
 package com.nation.dungeon.controllers;
 
+import com.nation.dungeon.util.DatabaseManager;
+import com.nation.dungeon.util.GameManager;
 import com.nation.dungeon.util.SceneManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -21,15 +23,32 @@ public class LoginRegisterMenu_Controller {
 
     @FXML
     public void initialize() {
+        //Sets resolution
         background.fitWidthProperty().bind(root.widthProperty());
         background.fitHeightProperty().bind(root.heightProperty());
 
+        GameManager.get().databaseManager().createDatabase();
+
         login.setOnAction(action -> {
-            SceneManager.switchScene("loginRegisterMenu.fxml");
+
+            if(tryLogin()) {
+
+                String currentUserName = GameManager.get().getPlayer().getUsername();
+
+                GameManager.get().getPlayer().setLevel(GameManager.get().databaseManager().getUserLevel(currentUserName));
+                GameManager.get().getPlayer().setCurrentHp(GameManager.get().databaseManager().getUserCurrentHP(currentUserName));
+                GameManager.get().getPlayer().setMaxHp(GameManager.get().databaseManager().getUserMaxHP(currentUserName));
+                GameManager.get().getPlayer().setCurrentMana(GameManager.get().databaseManager().getUserCurrentMana(currentUserName));
+                GameManager.get().getPlayer().setMaxMana(GameManager.get().databaseManager().getUserMaxMana(currentUserName));
+                GameManager.get().getPlayer().setDefence(GameManager.get().databaseManager().getUserDefence(currentUserName));
+                GameManager.get().getPlayer().setMoney(GameManager.get().databaseManager().getUserMoney(currentUserName));
+                GameManager.get().getPlayer().setStrength(GameManager.get().databaseManager().getUserStrength(currentUserName));
+                SceneManager.switchScene("createCharacterMenu.fxml");
+            }
         });
 
         register.setOnAction(action -> {
-            SceneManager.switchScene("createCharacterMenu.fxml");
+            tryRegister();
         });
 
         back.setOnAction(action -> {
@@ -123,5 +142,25 @@ public class LoginRegisterMenu_Controller {
                                        -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0, 0, 0);
                     """);
         });
+    }
+
+    private boolean tryLogin() {
+        if(usernameField != null && usernameField.getLength() <= 10) {
+            if(passwordField != null && passwordField.getLength() <= 10) {
+
+                GameManager.get().databaseManager().
+                GameManager.get().getPlayer().setUsername(String.valueOf(usernameField));
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void tryRegister() {
+        if(usernameField != null && usernameField.getLength() <= 10) {
+            if (passwordField != null && passwordField.getLength() <= 10) {
+                GameManager.get().databaseManager().createUser(GameManager.get().getPlayer().getUsername(), GameManager.get().getPlayer().getPassword());
+            }
+        }
     }
 }

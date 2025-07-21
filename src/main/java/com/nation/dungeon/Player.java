@@ -50,7 +50,11 @@ public class Player extends Character{
         character.setCurrentHp(character.getCurrentHp() - damageGiven);
     }
 
-    private void setPassword(String password) {
+    public String getPassword() {
+        return this.password;
+    }
+
+    public void setPassword(String password) {
         if(password != null && password.length() >= 4) {
             this.password = password;
         }

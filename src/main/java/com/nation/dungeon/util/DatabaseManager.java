@@ -340,7 +340,7 @@ public class DatabaseManager {
         return 0;
     }
 
-    public double getUserMoney(String currentUsersName) {
+    public long getUserMoney(String currentUsersName) {
 
         String sql = "SELECT money FROM Users WHERE username = ?";
 

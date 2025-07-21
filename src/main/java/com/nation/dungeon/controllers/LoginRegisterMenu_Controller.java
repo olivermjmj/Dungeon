@@ -48,7 +48,11 @@ public class LoginRegisterMenu_Controller {
         });
 
         register.setOnAction(action -> {
-            tryRegister();
+            if(tryRegister()) {
+
+            } else {
+
+            }
         });
 
         back.setOnAction(action -> {
@@ -148,19 +152,22 @@ public class LoginRegisterMenu_Controller {
         if(usernameField != null && usernameField.getLength() <= 10) {
             if(passwordField != null && passwordField.getLength() <= 10) {
 
-                GameManager.get().databaseManager().
-                GameManager.get().getPlayer().setUsername(String.valueOf(usernameField));
-                return true;
+                if(GameManager.get().databaseManager().doesUserExist(usernameField.getText(), passwordField.getText())) {
+                    GameManager.get().getPlayer().setUsername(usernameField.getText());
+                    return true;
+                }
             }
         }
         return false;
     }
 
-    private void tryRegister() {
+    private boolean tryRegister() {
         if(usernameField != null && usernameField.getLength() <= 10) {
             if (passwordField != null && passwordField.getLength() <= 10) {
-                GameManager.get().databaseManager().createUser(GameManager.get().getPlayer().getUsername(), GameManager.get().getPlayer().getPassword());
+                GameManager.get().databaseManager().createUser(usernameField.getText() ,passwordField.getText());
+                return true;
             }
         }
+        return false;
     }
 }

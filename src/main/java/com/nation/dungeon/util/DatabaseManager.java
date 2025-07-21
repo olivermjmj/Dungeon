@@ -15,7 +15,7 @@ public class DatabaseManager {
 
     public void createUser(String username, String password) {
 
-        if(!doesUserExist(username) && (username != null && username.length() >= 4 && username.length() <= 12) && (password.length() >= 4 && password.length() <= 12)) {
+        if(!doesUserExist(username, password) && ((username != null && password != null) && username.length() >= 4 && username.length() <= 10) && (password.length() >= 4 && password.length() <= 10)) {
 
             String sql = "INSERT INTO Users (level, username, password, strength, currentHP, maxHP, defence, currentMana, maxMana, money) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -31,16 +31,16 @@ public class DatabaseManager {
                 double defaultMaxMana = 100;
                 long defaultMoney = 1000;
 
-                stmt.setDouble(0, defaultLevel);
-                stmt.setString(1, username);
-                stmt.setString(2, password);
-                stmt.setDouble(3, defaultStrength);
-                stmt.setDouble(4, defaultCurrentHP);
-                stmt.setDouble(5, defaultMaxHP);
-                stmt.setDouble(6, defaultDefence);
-                stmt.setDouble(7, defaultCurrentMana);
-                stmt.setDouble(8, defaultMaxMana);
-                stmt.setDouble(9, defaultMoney);
+                stmt.setDouble(1, defaultLevel);
+                stmt.setString(2, username);
+                stmt.setString(3, password);
+                stmt.setDouble(4, defaultStrength);
+                stmt.setDouble(5, defaultCurrentHP);
+                stmt.setDouble(6, defaultMaxHP);
+                stmt.setDouble(7, defaultDefence);
+                stmt.setDouble(8, defaultCurrentMana);
+                stmt.setDouble(9, defaultMaxMana);
+                stmt.setLong(10, defaultMoney);
 
                 stmt.executeUpdate();
             } catch (SQLException e) {
@@ -60,10 +60,9 @@ public class DatabaseManager {
 
         //creates the table if not found
         try(Statement stmt = conn.createStatement()) {
-
             String sql = """ 
                          CREATE TABLE IF NOT EXISTS Users(
-                         id INTEGER PRIMARY KEY AUTOINCRIMENT,
+                         id INTEGER PRIMARY KEY AUTOINCREMENT,
                          level INTEGER NOT NULL,
                          username VARCHAR(12) NOT NULL UNIQUE,
                          password VARCHAR(12) NOT NULL,
@@ -73,7 +72,7 @@ public class DatabaseManager {
                          defence DOUBLE NOT NULL,
                          currentMana DOUBLE NOT NULL,
                          maxMana DOUBLE NOT NULL,
-                         money LONG NOT NULL,
+                         money INTEGER NOT NULL
                          );
                          """;
             stmt.execute(sql);
@@ -89,15 +88,15 @@ public class DatabaseManager {
 
         try(PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setInt(0, level);
-            stmt.setDouble(1, strength);
-            stmt.setDouble(2, currentHP);
-            stmt.setDouble(3, maxHP);
-            stmt.setDouble(4, defence);
-            stmt.setDouble(5, currentMana);
-            stmt.setDouble(6, maxMana);
-            stmt.setLong(7, money);
-            stmt.setString(8, currentUserName);
+            stmt.setInt(1, level);
+            stmt.setDouble(2, strength);
+            stmt.setDouble(3, currentHP);
+            stmt.setDouble(4, maxHP);
+            stmt.setDouble(5, defence);
+            stmt.setDouble(6, currentMana);
+            stmt.setDouble(7, maxMana);
+            stmt.setLong(8, money);
+            stmt.setString(9, currentUserName);
 
             stmt.executeUpdate();
         } catch (SQLException e) {
@@ -111,8 +110,8 @@ public class DatabaseManager {
 
         try(PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setInt(0, level);
-            stmt.setString(1, currentUserName);
+            stmt.setInt(1, level);
+            stmt.setString(2, currentUserName);
 
             stmt.executeUpdate();
         } catch (SQLException e) {
@@ -126,8 +125,8 @@ public class DatabaseManager {
 
         try(PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setDouble(0, strength);
-            stmt.setString(1, currentUserName);
+            stmt.setDouble(1, strength);
+            stmt.setString(2, currentUserName);
 
             stmt.executeUpdate();
         } catch (SQLException e) {
@@ -141,8 +140,8 @@ public class DatabaseManager {
 
         try(PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setDouble(0, currentHP);
-            stmt.setString(1, currentUserName);
+            stmt.setDouble(1, currentHP);
+            stmt.setString(2, currentUserName);
 
             stmt.executeUpdate();
         } catch (SQLException e) {
@@ -156,8 +155,8 @@ public class DatabaseManager {
 
         try(PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setDouble(0, maxHP);
-            stmt.setString(1, currentUserName);
+            stmt.setDouble(1, maxHP);
+            stmt.setString(2, currentUserName);
 
             stmt.executeUpdate();
         } catch (SQLException e) {
@@ -171,8 +170,8 @@ public class DatabaseManager {
 
         try(PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setDouble(0, defence);
-            stmt.setString(1, currentUserName);
+            stmt.setDouble(1, defence);
+            stmt.setString(2, currentUserName);
 
             stmt.executeUpdate();
         } catch (SQLException e) {
@@ -186,8 +185,8 @@ public class DatabaseManager {
 
         try(PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setDouble(0, currentMana);
-            stmt.setString(1, currentUserName);
+            stmt.setDouble(1, currentMana);
+            stmt.setString(2, currentUserName);
 
             stmt.executeUpdate();
         } catch (SQLException e) {
@@ -201,8 +200,8 @@ public class DatabaseManager {
 
         try(PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setDouble(0, maxMana);
-            stmt.setString(1, currentUserName);
+            stmt.setDouble(1, maxMana);
+            stmt.setString(2, currentUserName);
 
             stmt.executeUpdate();
         } catch (SQLException e) {
@@ -216,8 +215,8 @@ public class DatabaseManager {
 
         try(PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setLong(0, money);
-            stmt.setString(1, currentUserName);
+            stmt.setLong(1, money);
+            stmt.setString(2, currentUserName);
 
             stmt.executeUpdate();
         } catch (SQLException e) {
@@ -233,7 +232,7 @@ public class DatabaseManager {
 
         try(PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setString(0, currentUserName);
+            stmt.setString(1, currentUserName);
             ResultSet rs = stmt.executeQuery();
             return rs.getInt("level");
         } catch (SQLException e) {
@@ -247,7 +246,7 @@ public class DatabaseManager {
         String sql = "SELECT username FROM Users WHERE username = ?";
 
         try(PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(0, currentUsersName);
+            stmt.setString(1, currentUsersName);
             ResultSet rs = stmt.executeQuery();
             return rs.getString("username");
         } catch (SQLException e) {
@@ -261,7 +260,7 @@ public class DatabaseManager {
         String sql = "SELECT strength FROM Users WHERE username = ?";
 
         try(PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(0, currentUsersName);
+            stmt.setString(1, currentUsersName);
             ResultSet rs = stmt.executeQuery();
             return rs.getDouble("strength");
         } catch (SQLException e) {
@@ -275,7 +274,7 @@ public class DatabaseManager {
         String sql = "SELECT currentHP FROM Users WHERE username = ?";
 
         try(PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(0, currentUsersName);
+            stmt.setString(1, currentUsersName);
             ResultSet rs = stmt.executeQuery();
             return rs.getDouble("currentHP");
         } catch (SQLException e) {
@@ -289,7 +288,7 @@ public class DatabaseManager {
         String sql = "SELECT maxHP FROM Users WHERE username = ?";
 
         try(PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(0, currentUsersName);
+            stmt.setString(1, currentUsersName);
             ResultSet rs = stmt.executeQuery();
             return rs.getDouble("maxHP");
         } catch (SQLException e) {
@@ -303,7 +302,7 @@ public class DatabaseManager {
         String sql = "SELECT defence FROM Users WHERE username = ?";
 
         try(PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(0, currentUsersName);
+            stmt.setString(1, currentUsersName);
             ResultSet rs = stmt.executeQuery();
             return rs.getDouble("defence");
         } catch (SQLException e) {
@@ -317,7 +316,7 @@ public class DatabaseManager {
         String sql = "SELECT currentMana FROM Users WHERE username = ?";
 
         try(PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(0, currentUsersName);
+            stmt.setString(1, currentUsersName);
             ResultSet rs = stmt.executeQuery();
             return rs.getDouble("currentMana");
         } catch (SQLException e) {
@@ -331,7 +330,7 @@ public class DatabaseManager {
         String sql = "SELECT maxMana FROM Users WHERE username = ?";
 
         try(PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(0, currentUsersName);
+            stmt.setString(1, currentUsersName);
             ResultSet rs = stmt.executeQuery();
             return rs.getDouble("maxMana");
         } catch (SQLException e) {
@@ -345,7 +344,7 @@ public class DatabaseManager {
         String sql = "SELECT money FROM Users WHERE username = ?";
 
         try(PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(0, currentUsersName);
+            stmt.setString(1, currentUsersName);
             ResultSet rs = stmt.executeQuery();
             return rs.getLong("money");
         } catch (SQLException e) {
@@ -354,25 +353,21 @@ public class DatabaseManager {
         return 0;
     }
 
-    private boolean doesUserExist(String username) {
+    public boolean doesUserExist(String username, String password) {
 
-        String sql = "SELECT username FROM Users";
+        String sql = "SELECT * FROM Users WHERE username = ? AND password = ?";
 
-        try(Statement statement = conn.createStatement()) {
-            ResultSet rs = statement.executeQuery(sql);
+        try(PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            while (rs.next()) {
-                String dbName = rs.getString("username");
+        stmt.setString(1, username);
+        stmt.setString(2, password);
 
-                if(dbName.equals(username)) {
-                    return true;
-                }
-            }
+        ResultSet rs = stmt.executeQuery();
+        return rs.next();
 
         } catch (SQLException e) {
             System.out.println("Error from doesUserExist: " + e.getMessage());
         }
-
         return false;
     }
 

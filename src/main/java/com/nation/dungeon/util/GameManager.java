@@ -15,6 +15,7 @@ public class GameManager {
     private Player player;
     private Enemy enemy;
 
+    private boolean isFullScreen = false;
 
     public static GameManager get() {
         return instance;
@@ -48,4 +49,11 @@ public class GameManager {
         this.enemy = enemy;
     }
 
+    public void setFullScreen(boolean fullScreen) {
+        this.isFullScreen = true;
+    }
+
+    public boolean isFullScreen() {
+        return this.isFullScreen;
+    }
 }

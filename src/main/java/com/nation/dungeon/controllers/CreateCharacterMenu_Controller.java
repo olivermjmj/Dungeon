@@ -9,6 +9,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
 public class CreateCharacterMenu_Controller {
 
@@ -48,6 +49,11 @@ public class CreateCharacterMenu_Controller {
 
         //Next scene: City menu
         done.setOnAction(action -> {
+            Stage stage = (Stage) root.getScene().getWindow();
+            stage.setFullScreenExitHint("");
+            GameManager.get().setFullScreen(true);
+            stage.setFullScreen(true);
+
             SceneManager.switchScene("cityMenu.fxml");
         });
 

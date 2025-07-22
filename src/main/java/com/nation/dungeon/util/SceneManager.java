@@ -18,7 +18,10 @@ public class SceneManager {
     public static void switchScene(String fxmlFileName) {
         try {
             Parent root = FXMLLoader.load(SceneManager.class.getResource(FXML_PATH + fxmlFileName));
-            mainStage.setScene(new Scene(root));
+            Scene scene = new Scene(root);
+            mainStage.setScene(scene);
+
+            mainStage.setFullScreen(GameManager.get().isFullScreen());
         } catch (IOException e) {
             System.out.println("Error, could not fetch the .fxml file: " + e.getMessage());
         }

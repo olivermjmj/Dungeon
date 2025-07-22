@@ -1,12 +1,10 @@
 package com.nation.dungeon.controllers;
 
-import com.nation.dungeon.util.GameManager;
 import com.nation.dungeon.util.SceneManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
 
 public class StartMenu_Controller {
 
@@ -19,23 +17,35 @@ public class StartMenu_Controller {
 
     @FXML
     public void initialize() {
+
+        //GameManager.get().audioManager().playMusic("");
+
         background.fitWidthProperty().bind(root.widthProperty());
         background.fitHeightProperty().bind(root.heightProperty());
 
         play.setOnAction(action -> {
             SceneManager.switchScene("loginRegisterMenu.fxml");
+            //GameManager.get().audioManager().playSound("");
         });
 
         guest.setOnAction(action -> {
             SceneManager.switchScene("createCharacterMenu.fxml");
+            //GameManager.get().audioManager().playSound("");
         });
 
         exit.setOnAction(action -> {
+            //GameManager.get().audioManager().playSound("");
             System.exit(0);
         });
 
-        //Fxml styling
+        //fxml button styling
+        fxmlButtonReactStyling();
+    }
+
+    //A function made for the purpose, of making the buttons light up, when being hovered over.
+    private void fxmlButtonReactStyling() {
         play.setOnMouseEntered(action -> {
+            //GameManager.get().audioManager().playSound("");
             play.setStyle("""
                     -fx-background-color: #FFD700;
                                        -fx-cursor: hand;
@@ -53,6 +63,7 @@ public class StartMenu_Controller {
         });
 
         play.setOnMouseExited(action -> {
+            //GameManager.get().audioManager().playSound("");
             play.setStyle("""
                     -fx-background-color: #FFD700;
                                        -fx-cursor: hand;
@@ -65,6 +76,7 @@ public class StartMenu_Controller {
         });
 
         guest.setOnMouseEntered(action -> {
+            //GameManager.get().audioManager().playSound("");
             guest.setStyle("""
                     -fx-background-color: #FFD700;
                                        -fx-cursor: hand;
@@ -82,6 +94,7 @@ public class StartMenu_Controller {
         });
 
         guest.setOnMouseExited(action -> {
+            //GameManager.get().audioManager().playSound("");
             guest.setStyle("""
                     -fx-background-color: #FFD700;
                                       -fx-cursor: hand;
@@ -94,6 +107,7 @@ public class StartMenu_Controller {
         });
 
         exit.setOnMouseEntered(action -> {
+            //GameManager.get().audioManager().playSound("");
             exit.setStyle("""
                     -fx-background-color: #FFD700;
                                        -fx-cursor: hand;
@@ -111,6 +125,7 @@ public class StartMenu_Controller {
         });
 
         exit.setOnMouseExited(action -> {
+            //GameManager.get().audioManager().playSound("");
             exit.setStyle("""
                     -fx-background-color: #FFD700;
                                        -fx-cursor: hand;

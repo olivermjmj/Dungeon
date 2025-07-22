@@ -1,6 +1,6 @@
 package com.nation.dungeon.controllers;
 
-import com.nation.dungeon.util.DatabaseManager;
+import com.nation.dungeon.Player;
 import com.nation.dungeon.util.GameManager;
 import com.nation.dungeon.util.SceneManager;
 import javafx.fxml.FXML;
@@ -149,17 +149,35 @@ public class LoginRegisterMenu_Controller {
     }
 
     private boolean tryLogin() {
-        if(usernameField != null && usernameField.getLength() <= 10) {
-            if(passwordField != null && passwordField.getLength() <= 10) {
+        if (usernameField != null && usernameField.getLength() <= 10) {
+            if (passwordField != null && passwordField.getLength() <= 10) {
+                String username = usernameField.getText();
+                String password = passwordField.getText();
 
-                if(GameManager.get().databaseManager().doesUserExist(usernameField.getText(), passwordField.getText())) {
-                    GameManager.get().getPlayer().setUsername(usernameField.getText());
+                if (GameManager.get().databaseManager().doesUserExist(username, password)) {
+                    // Hent alle stats fra databasen
+                    int level = GameManager.get().databaseManager().getUserLevel(username);
+                    double strength = GameManager.get().databaseManager().getUserStrength(username);
+                    double currentHp = GameManager.get().databaseManager().getUserCurrentHP(username);
+                    double maxHp = GameManager.get().databaseManager().getUserMaxHP(username);
+                    double defence = GameManager.get().databaseManager().getUserDefence(username);
+                    double currentMana = GameManager.get().databaseManager().getUserCurrentMana(username);
+                    double maxMana = GameManager.get().databaseManager().getUserMaxMana(username);
+                    long money = GameManager.get().databaseManager().getUserMoney(username);
+
+                    //Creates player with all values from the database
+                    Player newPlayer = new Player(level, username, password, strength, currentHp, maxHp, defence, currentMana, maxMana, money);
+
+                    //Sets player in GameManager
+                    GameManager.get().setPlayer(newPlayer);
+
                     return true;
                 }
             }
         }
         return false;
     }
+
 
     private boolean tryRegister() {
         if(usernameField != null && usernameField.getLength() <= 10) {

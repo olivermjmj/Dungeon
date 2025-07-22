@@ -11,6 +11,7 @@ public class DatabaseManager {
 
     public DatabaseManager() {
         connect();
+        createDatabase();
     }
 
     public void createUser(String username, String password) {

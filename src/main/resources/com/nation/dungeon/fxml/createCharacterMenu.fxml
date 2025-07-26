@@ -11,97 +11,24 @@
     </ImageView>
 
     <VBox alignment="CENTER" spacing="20.0">
-        <Text fill="#ffc463" style="-fx-background-color: #FFD700;
-        -fx-font-family: 'Comic Sans MS';
-        -fx-font-size: 28;
-        -fx-font-weight: bold;
-        -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0, 0, 0);" text="Skill points left" />
-        <Label textFill="#ffc463" fx:id="skillPoint" prefWidth="50.0" prefHeight="50.0" style="-fx-background-color: #dbd393;
-        -fx-text-fill: #ffc463;
-        -fx-font-family: 'Comic Sans MS';
-        -fx-font-size: 28;
-        -fx-font-weight: bold;
-        -fx-alignment: center;
-        -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0, 0, 0);" text="6" />
+        <Text fill="#ffc463" style="-fx-background-color: #FFD700;         -fx-font-family: 'Comic Sans MS';         -fx-font-size: 28;         -fx-font-weight: bold;         -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0, 0, 0);" text="Skill points left" />
+        <Label fx:id="skillPoint" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: #dbd393;         -fx-text-fill: #ffc463;         -fx-font-family: 'Comic Sans MS';         -fx-font-size: 28;         -fx-font-weight: bold;         -fx-alignment: center;         -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0, 0, 0);" text="6" textFill="#ffc463" />
 
 
-        <Text fill="#ffc463" style="-fx-background-color: #FFD700;
-        -fx-font-family: 'Comic Sans MS';
-        -fx-font-size: 28;
-        -fx-font-weight: bold;
-        -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0, 0, 0);" text="Strength" />
-        <Label fx:id="strengthPoint" style="
-        -fx-text-fill: #FFFFFFFF;
-        -fx-font-family: 'Comic Sans MS';
-        -fx-font-size: 28;
-        -fx-font-weight: bold;
-        -fx-alignment: center;
-        -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0, 0, 0);" text="1" />
-        <Button fx:id="strengthPlus" text="+" prefWidth="100.0"
-                style="-fx-background-color: #FFD700;
-                   -fx-cursor: hand;
-                   -fx-text-fill: #000000;
-                   -fx-font-family: 'Comic Sans MS';
-                   -fx-font-size: 14;
-                   -fx-font-weight: bold;
-                   -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0, 0, 0);" />
-        <Button fx:id="strengthMinus" text="-" prefWidth="100.0"
-                style="-fx-background-color: #FFD700;
-                   -fx-cursor: hand;
-                   -fx-text-fill: #000000;
-                   -fx-font-family: 'Comic Sans MS';
-                   -fx-font-size: 14;
-                   -fx-font-weight: bold;
-                   -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0, 0, 0);" />
-        <Text fill="#ffc463" style="-fx-background-color: #FFD700;
-        -fx-font-family: 'Comic Sans MS';
-        -fx-font-size: 28;
-        -fx-font-weight: bold;
-        -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0, 0, 0);" text="Increase melee weapon damage" />
+        <Text fill="#ffc463" style="-fx-background-color: #FFD700;         -fx-font-family: 'Comic Sans MS';         -fx-font-size: 28;         -fx-font-weight: bold;         -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0, 0, 0);" text="Strength" />
+        <Label fx:id="strengthPoint" style="         -fx-text-fill: #FFFFFFFF;         -fx-font-family: 'Comic Sans MS';         -fx-font-size: 28;         -fx-font-weight: bold;         -fx-alignment: center;         -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0, 0, 0);" text="1" />
+        <Button fx:id="strengthPlus" prefWidth="100.0" style="-fx-background-color: #FFD700;                    -fx-cursor: hand;                    -fx-text-fill: #000000;                    -fx-font-family: 'Comic Sans MS';                    -fx-font-size: 14;                    -fx-font-weight: bold;                    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0, 0, 0);" text="+" />
+        <Button fx:id="strengthMinus" prefWidth="100.0" style="-fx-background-color: #FFD700;                    -fx-cursor: hand;                    -fx-text-fill: #000000;                    -fx-font-family: 'Comic Sans MS';                    -fx-font-size: 14;                    -fx-font-weight: bold;                    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0, 0, 0);" text="-" />
+        <Text fill="#ffc463" style="-fx-background-color: #FFD700;         -fx-font-family: 'Comic Sans MS';         -fx-font-size: 28;         -fx-font-weight: bold;         -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0, 0, 0);" text="Increase melee weapon damage" />
 
 
-        <Text fill="#ffc463" style="-fx-background-color: #FFD700;
-        -fx-font-family: 'Comic Sans MS';
-        -fx-font-size: 28;
-        -fx-font-weight: bold;
-        -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0, 0, 0);" text="Vitality" />
-        <Label fx:id="vitalityPoint" style="
-        -fx-text-fill: #FFFFFFFF;
-        -fx-font-family: 'Comic Sans MS';
-        -fx-font-size: 28;
-        -fx-font-weight: bold;
-        -fx-alignment: center;
-        -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0, 0, 0);" text="1" />
-        <Button fx:id="vitalityPlus" text="+" prefWidth="100.0"
-                style="-fx-background-color: #FFD700;
-                   -fx-cursor: hand;
-                   -fx-text-fill: #000000;
-                   -fx-font-family: 'Comic Sans MS';
-                   -fx-font-size: 14;
-                   -fx-font-weight: bold;
-                   -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0, 0, 0);" />
-        <Button fx:id="vitalityMinus" text="-" prefWidth="100.0"
-                style="-fx-background-color: #FFD700;
-                   -fx-cursor: hand;
-                   -fx-text-fill: #000000;
-                   -fx-font-family: 'Comic Sans MS';
-                   -fx-font-size: 14;
-                   -fx-font-weight: bold;
-                   -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0, 0, 0);" />
-        <Text fill="#ffc463" style="-fx-background-color: #FFD700;
-        -fx-font-family: 'Comic Sans MS';
-        -fx-font-size: 28;
-        -fx-font-weight: bold;
-        -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0, 0, 0);" text="boosts health and health regeneration" />
+        <Button fx:id="done" prefWidth="100.0" style="-fx-background-color: #FFD700;                    -fx-cursor: hand;                    -fx-text-fill: #000000;                    -fx-font-family: 'Comic Sans MS';                    -fx-font-size: 14;                    -fx-font-weight: bold;                    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0, 0, 0);" text="Done" />
 
 
-        <Button fx:id="done" text="Done" prefWidth="100.0"
-                style="-fx-background-color: #FFD700;
-                   -fx-cursor: hand;
-                   -fx-text-fill: #000000;
-                   -fx-font-family: 'Comic Sans MS';
-                   -fx-font-size: 14;
-                   -fx-font-weight: bold;
-                   -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0, 0, 0);" />
+        <Text fill="#ffc463" style="-fx-background-color: #FFD700;         -fx-font-family: 'Comic Sans MS';         -fx-font-size: 28;         -fx-font-weight: bold;         -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0, 0, 0);" text="Vitality" />
+        <Label fx:id="vitalityPoint" style="         -fx-text-fill: #FFFFFFFF;         -fx-font-family: 'Comic Sans MS';         -fx-font-size: 28;         -fx-font-weight: bold;         -fx-alignment: center;         -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0, 0, 0);" text="1" />
+        <Button fx:id="vitalityPlus" prefWidth="100.0" style="-fx-background-color: #FFD700;                    -fx-cursor: hand;                    -fx-text-fill: #000000;                    -fx-font-family: 'Comic Sans MS';                    -fx-font-size: 14;                    -fx-font-weight: bold;                    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0, 0, 0);" text="+" />
+        <Button fx:id="vitalityMinus" prefWidth="100.0" style="-fx-background-color: #FFD700;                    -fx-cursor: hand;                    -fx-text-fill: #000000;                    -fx-font-family: 'Comic Sans MS';                    -fx-font-size: 14;                    -fx-font-weight: bold;                    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0, 0, 0);" text="-" />
+        <Text fill="#ffc463" style="-fx-background-color: #FFD700;         -fx-font-family: 'Comic Sans MS';         -fx-font-size: 28;         -fx-font-weight: bold;         -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0, 0, 0);" text="boosts health and health regeneration" />
     </VBox>
 </StackPane>

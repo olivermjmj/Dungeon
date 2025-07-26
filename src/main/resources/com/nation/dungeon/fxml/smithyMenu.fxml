@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<StackPane fx:id="root" xmlns="http://javafx.com/javafx/17.0.12"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.nation.dungeon.controllers.SmithyMenu_Controller">
+    <ImageView fx:id="background">
+        <Image url="@../images/images/background/cityMenu.png"/>
+    </ImageView>
+
+    <VBox alignment="CENTER" spacing="20.0">
+        <Button fx:id="play" text="PLAY" prefWidth="100.0"
+                style="-fx-background-color: #FFD700;
+                   -fx-cursor: hand;
+                   -fx-text-fill: #000000;
+                   -fx-font-family: 'Comic Sans MS';
+                   -fx-font-size: 14;
+                   -fx-font-weight: bold;
+                   -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0, 0, 0);" />
+        <Button fx:id="guest" text="GUEST" prefWidth="100.0"
+                style="-fx-background-color: #FFD700;
+                   -fx-cursor: hand;
+                   -fx-text-fill: #000000;
+                   -fx-font-family: 'Comic Sans MS';
+                   -fx-font-size: 14;
+                   -fx-font-weight: bold;
+                   -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0, 0, 0);" />
+        <Button fx:id="exit" text="EXIT" prefWidth="100.0"
+                style="-fx-background-color: #FFD700;
+                   -fx-cursor: hand;
+                   -fx-text-fill: #000000;
+                   -fx-font-family: 'Comic Sans MS';
+                   -fx-font-size: 14;
+                   -fx-font-weight: bold;
+                   -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0, 0, 0);" />
+    </VBox>
+</StackPane>
+
+

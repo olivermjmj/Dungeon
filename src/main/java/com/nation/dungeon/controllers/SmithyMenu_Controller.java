@@ -6,7 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 
-public class CityMenu_Controller {
+public class SmithyMenu_Controller {
 
     @FXML private Button play;
     @FXML private Button guest;
@@ -24,12 +24,12 @@ public class CityMenu_Controller {
         background.fitHeightProperty().bind(root.heightProperty());
 
         play.setOnAction(action -> {
-            SceneManager.switchScene("smithyMenu.fxml");
+            SceneManager.switchScene("cityMenu.fxml");
             //GameManager.get().audioManager().playSound("");
         });
 
         guest.setOnAction(action -> {
-            SceneManager.switchScene("smithyMenu.fxml");
+            SceneManager.switchScene("cityMenu.fxml");
             //GameManager.get().audioManager().playSound("");
         });
 

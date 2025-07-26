@@ -1,6 +1,6 @@
 package com.nation.dungeon;
 
-import com.nation.dungeon.controllers.CreateCharacterMenu_Controller;
+import com.nation.dungeon.util.GameManager;
 import com.nation.dungeon.util.SceneManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

@@ -50,7 +50,7 @@ public class GameManager {
     }
 
     public void setFullScreen(boolean fullScreen) {
-        this.isFullScreen = true;
+        this.isFullScreen = fullScreen;
     }
 
     public boolean isFullScreen() {

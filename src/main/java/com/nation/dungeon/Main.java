@@ -5,6 +5,7 @@ import com.nation.dungeon.util.SceneManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCharacterCombination;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -20,6 +21,8 @@ public class Main extends Application {
         stage.setTitle("Mænd der slås");
         stage.setScene(scene);
         stage.setResizable(false);
+        //Removes the users ability to accidentally exit fullscreen
+        //stage.setFullScreenExitKeyCombination(new KeyCharacterCombination(null));
         stage.show();
     }
 

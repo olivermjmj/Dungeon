@@ -4,10 +4,12 @@ import com.nation.dungeon.util.SceneManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 
 public class CityMenu_Controller {
 
+    @FXML public Pane uiLayer;
     @FXML private Button smithy;
     @FXML private Button arena;
     @FXML private Button upgrade;

@@ -52,7 +52,6 @@ public class LoginRegisterMenu_Controller {
                     Stage stage = (Stage) root.getScene().getWindow();
                     stage.setFullScreenExitHint("");
                     GameManager.get().setFullScreen(true);
-                    stage.setFullScreen(true);
 
                     SceneManager.switchScene("cityMenu.fxml");
                 }

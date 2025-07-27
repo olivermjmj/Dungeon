@@ -1,8 +1,10 @@
 package com.nation.dungeon.controllers;
 
+import com.nation.dungeon.merchant.Item;
 import com.nation.dungeon.util.SceneManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 
@@ -40,6 +42,9 @@ public class SmithyMenu_Controller {
 
         //fxml button styling
         fxmlButtonReactStyling();
+
+        //Image image = new Image("/com/nation/dungeon/images/sword0");
+        //Item item = new Item(image);
     }
 
     //A function made for the purpose, of making the buttons light up, when being hovered over.

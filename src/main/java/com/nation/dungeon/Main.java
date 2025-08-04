@@ -1,12 +1,9 @@
 package com.nation.dungeon;
 
-import com.nation.dungeon.util.GameManager;
 import com.nation.dungeon.util.SceneManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.input.KeyCharacterCombination;
 import javafx.stage.Stage;
 
 import java.io.IOException;

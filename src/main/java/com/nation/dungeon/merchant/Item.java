@@ -9,8 +9,8 @@ public class Item {
     private String description;
     private double damageModifier;
 
-    public Item(Image file) {
-        this.image = file;
+    public Item(Image image) {
+        this.image = image;
     }
 
     //setters

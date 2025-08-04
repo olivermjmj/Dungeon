@@ -25,6 +25,9 @@ public class CityMenu_Controller {
         background.fitWidthProperty().bind(root.widthProperty());
         background.fitHeightProperty().bind(root.heightProperty());
 
+        uiLayer.prefWidthProperty().bind(root.widthProperty());
+        uiLayer.prefHeightProperty().bind(root.heightProperty());
+
         smithy.setOnAction(action -> {
             SceneManager.switchScene("smithyMenu.fxml");
             //GameManager.get().audioManager().playSound("");

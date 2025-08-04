@@ -7,10 +7,8 @@
     <ImageView fx:id="background">
         <Image url="@../images/images/background/smithy.png" />
     </ImageView>
-   <Pane prefHeight="200.0" prefWidth="200.0" />
-   <ImageView fx:id="background1" layoutX="10.0" layoutY="10.0">
-      <image>
-         <Image url="@../images/images/background/smithy.png" />
-      </image>
-   </ImageView>
+   <Pane prefHeight="200.0" prefWidth="200.0">
+      <children>
+         <ImageView fx:id="sword0" fitHeight="150.0" fitWidth="200.0" layoutX="933.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+      </children></Pane>
 </StackPane>

@@ -5,7 +5,7 @@
 
 <StackPane fx:id="root" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nation.dungeon.controllers.SmithyMenu_Controller">
     <ImageView fx:id="background">
-        <Image url="@../images/images/background/smithy.png" />
+        <Image url="@../images/images/background/smithyMenu.png" />
     </ImageView>
    <Pane prefHeight="200.0" prefWidth="200.0">
       <children>

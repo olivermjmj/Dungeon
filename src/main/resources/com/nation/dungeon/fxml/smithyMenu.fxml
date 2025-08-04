@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
@@ -14,12 +15,20 @@
     <Pane fx:id="uiLayer">
         <children>
             <ImageView fx:id="weaponHolder" fitHeight="712.0" fitWidth="491.0" preserveRatio="true" />
+
             <ImageView fx:id="sword0" fitHeight="150.0" fitWidth="200.0" layoutX="973.0" layoutY="69.0" preserveRatio="true" />
             <ImageView fx:id="sword1" fitHeight="150.0" fitWidth="200.0" layoutX="973.0" layoutY="69.0" preserveRatio="true" />
             <ImageView fx:id="sword2" fitHeight="150.0" fitWidth="200.0" layoutX="973.0" layoutY="69.0" preserveRatio="true" />
             <ImageView fx:id="sword3" fitHeight="150.0" fitWidth="200.0" layoutX="973.0" layoutY="69.0" preserveRatio="true" />
             <ImageView fx:id="sword4" fitHeight="150.0" fitWidth="200.0" layoutX="973.0" layoutY="69.0" preserveRatio="true" />
             <ImageView fx:id="sword5" fitHeight="150.0" fitWidth="200.0" layoutX="973.0" layoutY="69.0" preserveRatio="true" />
+
+            <TextField fx:id="sword0Description" layoutX="261.0" layoutY="194.0" />
+            <TextField fx:id="sword1Description" layoutX="261.0" layoutY="240.0" />
+            <TextField fx:id="sword2Description" layoutX="261.0" layoutY="194.0" />
+            <TextField fx:id="sword3Description" layoutX="261.0" layoutY="194.0" />
+            <TextField fx:id="sword4Description" layoutX="261.0" layoutY="194.0" />
+            <TextField fx:id="sword5Description" layoutX="261.0" layoutY="194.0" />
         </children>
     </Pane>
 

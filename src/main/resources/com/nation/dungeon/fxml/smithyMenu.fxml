@@ -4,6 +4,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.scene.text.Text?>
 <StackPane fx:id="root" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nation.dungeon.controllers.SmithyMenu_Controller">
 
     <!-- background -->
@@ -23,12 +24,12 @@
             <ImageView fx:id="sword4" fitHeight="150.0" fitWidth="200.0" layoutX="973.0" layoutY="69.0" preserveRatio="true" />
             <ImageView fx:id="sword5" fitHeight="150.0" fitWidth="200.0" layoutX="973.0" layoutY="69.0" preserveRatio="true" />
 
-            <TextField fx:id="sword0Description" layoutX="261.0" layoutY="194.0" />
-            <TextField fx:id="sword1Description" layoutX="261.0" layoutY="240.0" />
-            <TextField fx:id="sword2Description" layoutX="261.0" layoutY="194.0" />
-            <TextField fx:id="sword3Description" layoutX="261.0" layoutY="194.0" />
-            <TextField fx:id="sword4Description" layoutX="261.0" layoutY="194.0" />
-            <TextField fx:id="sword5Description" layoutX="261.0" layoutY="194.0" />
+            <Text fx:id="sword0Description" layoutX="261.0" layoutY="194.0" />
+            <Text fx:id="sword1Description" layoutX="261.0" layoutY="240.0" />
+            <Text fx:id="sword2Description" layoutX="261.0" layoutY="194.0" />
+            <Text fx:id="sword3Description" layoutX="261.0" layoutY="194.0" />
+            <Text fx:id="sword4Description" layoutX="261.0" layoutY="194.0" />
+            <Text fx:id="sword5Description" layoutX="261.0" layoutY="194.0" />
         </children>
     </Pane>
 

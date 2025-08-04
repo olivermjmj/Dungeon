@@ -37,4 +37,20 @@ public class ItemCombiner {
         }
         return weaponImages;
     }
+
+    //Sets the weapons default names
+    public void setDefaultWeaponNames() {
+        String[] names = {
+                "Trodden wooden sword",
+                "Rusty bronze sword",
+                "Thoroughly worn metal sword",
+                "Fine iron sword",
+                "great damascus steel sword",
+                "Dragon steel sword"
+        };
+
+        for(int i = 0; i < names.length && i < items.size(); i++) {
+            items.get(i).setDescription(names[i]);
+        }
+     }
 }

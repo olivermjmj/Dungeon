@@ -2,56 +2,39 @@ package com.nation.dungeon.merchant;
 
 import javafx.scene.image.Image;
 
-import java.io.File;
+import java.net.URL;
 import java.util.ArrayList;
 
 
 public class ItemCombiner {
 
-    private ArrayList<Item> weaponPictures = getWeaponPictures();
-    private final String weaponPath = "src/main/resources/images/weaponImages";
+    public ArrayList<Item> items;
+
+    //Constructor for the first 6 items
+    public ItemCombiner() {
+        this.items = setWeaponPictures(0, 5);
+
+    }
+
+    public void loadWeapons(int startIndex, int endIndex) {
+        this.items = setWeaponPictures(startIndex, endIndex);
+    }
 
 
-    public ArrayList<Item> getWeaponPictures() {
-
+    private ArrayList<Item> setWeaponPictures(int startIndex, int endIndex) {
         ArrayList<Item> weaponImages = new ArrayList<>();
-        File weaponFolder = new File(this.weaponPath);
 
-        File[] files = weaponFolder.listFiles();
+        for (int i = startIndex; i <= endIndex; i++) {
+            String path = "/com/nation/dungeon/images/images/weaponImages/sword" + i + ".png";
 
-        if(files != null) {
-            for(int i = 0; i < files.length; i++) {
-
-                File file = new File(weaponPath + "/weapon" + i + ".png");
-
-                if(file.exists()) {
-                    Image image = new Image(file.toURI().toString());
-                    Item item = new Item(image);
-                    weaponImages.add(item);
-                }
+            URL url = getClass().getResource(path);
+            if (url != null) {
+                Image image = new Image(url.toExternalForm());
+                weaponImages.add(new Item(image));
+            } else {
+                System.out.println("Could not find the picture on the path: " + path);
             }
         }
-
         return weaponImages;
-    }
-
-    public void setWeaponNames() {
-
-        weaponPictures.getFirst().setDescription("");
-        weaponPictures.get(1).setDescription("");
-        weaponPictures.get(2).setDescription("");
-        weaponPictures.get(3).setDescription("");
-        weaponPictures.get(4).setDescription("");
-        weaponPictures.get(5).setDescription("");
-    }
-
-    public void setWeaponStats() {
-
-        weaponPictures.getFirst().setDamageModifier(1);
-        weaponPictures.get(1).setDamageModifier(1);
-        weaponPictures.get(2).setDamageModifier(1);
-        weaponPictures.get(3).setDamageModifier(1);
-        weaponPictures.get(4).setDamageModifier(1);
-        weaponPictures.get(5).setDamageModifier(1);
     }
 }

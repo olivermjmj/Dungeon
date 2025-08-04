@@ -3,9 +3,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<StackPane fx:id="root" xmlns="http://javafx.com/javafx/17.0.12"
-           xmlns:fx="http://javafx.com/fxml/1"
-           fx:controller="com.nation.dungeon.controllers.SmithyMenu_Controller">
+<StackPane fx:id="root" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nation.dungeon.controllers.SmithyMenu_Controller">
 
     <!-- background -->
     <ImageView fx:id="background">
@@ -15,8 +13,13 @@
     <!-- uiLayer -->
     <Pane fx:id="uiLayer">
         <children>
-            <ImageView fx:id="sword0" fitHeight="150.0" fitWidth="200.0"
-                       layoutX="933.0" layoutY="14.0" preserveRatio="true"/>
+            <ImageView fx:id="weaponHolder" fitHeight="712.0" fitWidth="491.0" preserveRatio="true" />
+            <ImageView fx:id="sword0" fitHeight="150.0" fitWidth="200.0" layoutX="973.0" layoutY="69.0" preserveRatio="true" />
+            <ImageView fx:id="sword1" fitHeight="150.0" fitWidth="200.0" layoutX="973.0" layoutY="69.0" preserveRatio="true" />
+            <ImageView fx:id="sword2" fitHeight="150.0" fitWidth="200.0" layoutX="973.0" layoutY="69.0" preserveRatio="true" />
+            <ImageView fx:id="sword3" fitHeight="150.0" fitWidth="200.0" layoutX="973.0" layoutY="69.0" preserveRatio="true" />
+            <ImageView fx:id="sword4" fitHeight="150.0" fitWidth="200.0" layoutX="973.0" layoutY="69.0" preserveRatio="true" />
+            <ImageView fx:id="sword5" fitHeight="150.0" fitWidth="200.0" layoutX="973.0" layoutY="69.0" preserveRatio="true" />
         </children>
     </Pane>
 

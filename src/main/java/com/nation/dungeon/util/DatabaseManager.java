@@ -1,5 +1,7 @@
 package com.nation.dungeon.util;
 
+import com.nation.dungeon.merchant.Item;
+
 import java.io.File;
 import java.sql.*;
 
@@ -373,12 +375,12 @@ public class DatabaseManager {
         return 0;
     }
 
-    public String getUserWeapon(String currentUsersWeapon) {
+    public String getUserWeapon(String currentUsersName) {
 
         String sql = "SELECT weapon FROM Users WHERE username = ?";
 
         try(PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(1, currentUsersWeapon);
+            stmt.setString(1, currentUsersName);
             ResultSet rs = stmt.executeQuery();
             return rs.getString("weapon");
         } catch (SQLException e) {

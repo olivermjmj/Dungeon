@@ -8,9 +8,10 @@ public class Player extends Character{
     private final double defenceModifier = 0.5;
     private Item weapon;
 
-    public Player(int level, String username, String password, double strength, double currentHp, double maxHp, double defence, double currentMana, double maxMana, long money) {
+    public Player(int level, String username, String password, double strength, double currentHp, double maxHp, double defence, double currentMana, double maxMana, long money, Item weapon) {
         super(level, username, strength, currentHp, maxHp, defence, currentMana, maxMana, money);
         setPassword(password);
+        this.weapon = weapon;
     }
 
     @Override

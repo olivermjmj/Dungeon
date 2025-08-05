@@ -1,6 +1,7 @@
 package com.nation.dungeon.controllers;
 
 import com.nation.dungeon.Player;
+import com.nation.dungeon.merchant.Item;
 import com.nation.dungeon.util.GameManager;
 import com.nation.dungeon.util.SceneManager;
 import javafx.fxml.FXML;
@@ -22,6 +23,7 @@ public class LoginRegisterMenu_Controller {
     private double currentMana;
     private double maxMana;
     private long money;
+    private Item weapon;
 
     @FXML private TextField usernameField;
     @FXML private PasswordField passwordField;
@@ -95,7 +97,7 @@ public class LoginRegisterMenu_Controller {
                 String password = passwordField.getText();
 
                 if (GameManager.get().databaseManager().doesUserExist(username, password)) {
-                    // Hent alle stats fra databasen
+                    //Pulls all the stats from the database
                     this.level = GameManager.get().databaseManager().getUserLevel(username);
                     this.strength = GameManager.get().databaseManager().getUserStrength(username);
                     this.currentHp = GameManager.get().databaseManager().getUserCurrentHP(username);
@@ -104,9 +106,10 @@ public class LoginRegisterMenu_Controller {
                     this.currentMana = GameManager.get().databaseManager().getUserCurrentMana(username);
                     this.maxMana = GameManager.get().databaseManager().getUserMaxMana(username);
                     this.money = GameManager.get().databaseManager().getUserMoney(username);
+                    this.weapon = GameManager.get().getWeaponFromName();
 
                     //Creates player with all values from the database
-                    Player newPlayer = new Player(this.level, username, password, this.strength, this.currentHp, this.maxHp, this.defence, this.currentMana, this.maxMana, this.money);
+                    Player newPlayer = new Player(this.level, username, password, this.strength, this.currentHp, this.maxHp, this.defence, this.currentMana, this.maxMana, this.money, this.weapon);
 
                     //Sets player in GameManager
                     GameManager.get().setPlayer(newPlayer);

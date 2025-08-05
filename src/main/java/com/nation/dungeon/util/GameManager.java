@@ -2,6 +2,7 @@ package com.nation.dungeon.util;
 
 import com.nation.dungeon.Enemy;
 import com.nation.dungeon.Player;
+import com.nation.dungeon.merchant.Item;
 import com.nation.dungeon.merchant.ItemCombiner;
 
 public class GameManager {
@@ -55,5 +56,15 @@ public class GameManager {
 
     public boolean isFullScreen() {
         return this.isFullScreen;
+    }
+
+    public Item getWeaponFromName() {
+        for(Item item : GameManager.get().itemCombiner.items) {
+            if(item.getDescription().equals(GameManager.get().databaseManager.getUserWeapon(GameManager.get().player.getUsername()))) {
+                return item;
+            }
+        }
+
+        return null;
     }
 }

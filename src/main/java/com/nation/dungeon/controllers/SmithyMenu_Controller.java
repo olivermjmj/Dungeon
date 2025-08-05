@@ -5,7 +5,6 @@ import com.nation.dungeon.util.SceneManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.effect.DropShadow;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -43,7 +42,7 @@ public class SmithyMenu_Controller {
     @FXML private ImageView background;
     @FXML private StackPane root;
 
-    private ImageView selectedSword = new ImageView();
+    private ImageView selectedSword;
     private final DropShadow glowEffect = new DropShadow(30, Color.GOLD);
 
     @FXML
@@ -80,7 +79,7 @@ public class SmithyMenu_Controller {
             sword.setOnMouseClicked(action -> {
                 //Removes the glowing effect from the last selected weapon
                 if (selectedSword != null) {
-                    selectedSword.setEffect(glowEffect);
+                    selectedSword.setEffect(null);
                 }
 
                 //sets the current swords as the selected one and sets the glowing effect to the current weapon
@@ -89,12 +88,13 @@ public class SmithyMenu_Controller {
             });
         }
 
-
+        //A button for the user to be able to go back to the last menu visited
         back.setOnAction(action -> {
             //GameManager.get().audioManager().playSound("");
             SceneManager.switchScene("cityMenu.fxml");
         });
 
+        //Buy button logic
         buyButton.setOnAction(action -> {
             if(selectedSword != null) {
                 int index = -1;
@@ -109,8 +109,15 @@ public class SmithyMenu_Controller {
                     int price = GameManager.get().itemCombiner().items.get(index).getPrice();
                     long currentUserGold = GameManager.get().getPlayer().getMoney();
 
+                    //Negates the cost of the weapon from the users current amount of money
                     if(currentUserGold >= price) {
                         GameManager.get().getPlayer().setMoney(currentUserGold - price);
+
+                        //Updates the player to have the weapon selected
+                        GameManager.get().getPlayer().setWeapon(GameManager.get().itemCombiner().items.get(index));
+
+                        //Updates the database to include the given weapon
+                        GameManager.get().databaseManager().setUserWeapon(GameManager.get().itemCombiner().items.get(index).getDescription(), GameManager.get().getPlayer().getUsername());
                     } else {
                         //User does not have enough money
                         //GameManager.get().audioManager().playSound("");

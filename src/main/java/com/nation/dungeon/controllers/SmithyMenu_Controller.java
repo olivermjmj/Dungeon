@@ -60,6 +60,9 @@ public class SmithyMenu_Controller {
         uiLayer.prefWidthProperty().bind(root.widthProperty());
         uiLayer.prefHeightProperty().bind(root.heightProperty());
 
+        //fxml button styling
+        fxmlButtonReactStyling();
+
         //Sets the weapon pictures
         if(!GameManager.get().itemCombiner().items.isEmpty()) {
             for(int i = 0; i < swordImageArray.length && i < GameManager.get().itemCombiner().items.size(); i++) {
@@ -126,6 +129,71 @@ public class SmithyMenu_Controller {
                     System.out.println("Something went wrong with the purchase, the item you tried to buy: " + selectedSword.getId() + " The index you hit in the array was: " + index);
                 }
             }
+        });
+    }
+
+    //A function made for the purpose, of making the buttons light up, when being hovered over.
+    private void fxmlButtonReactStyling() {
+        buyButton.setOnMouseEntered(action -> {
+            //GameManager.get().audioManager().playSound("");
+            buyButton.setStyle("""
+                    -fx-background-color: #FFD700;
+                                       -fx-cursor: hand;
+                                       -fx-text-fill: #000000;
+                                       -fx-font-family: 'Comic Sans MS';
+                                       -fx-font-size: 14;
+                                       -fx-font-weight: bold;
+                                       -fx-min-height: 40;
+                                       -fx-effect: dropshadow(three-pass-box, rgba(255,215,0,0.8), 15, 0.5, 0, 0);
+                                       -fx-border-color: #DAA520;
+                                       -fx-border-width: 2;
+                                       -fx-background-radius: 5;
+                                       -fx-border-radius: 5;
+                    """);
+        });
+
+        buyButton.setOnMouseExited(action -> {
+            //GameManager.get().audioManager().playSound("");
+            buyButton.setStyle("""
+                    -fx-background-color: #FFD700;
+                                       -fx-cursor: hand;
+                                       -fx-text-fill: #000000;
+                                       -fx-font-family: 'Comic Sans MS';
+                                       -fx-font-size: 14;
+                                       -fx-font-weight: bold;
+                                       -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0, 0, 0);
+                    """);
+        });
+
+        back.setOnMouseEntered(action -> {
+            //GameManager.get().audioManager().playSound("");
+            back.setStyle("""
+                    -fx-background-color: #FFD700;
+                                       -fx-cursor: hand;
+                                       -fx-text-fill: #000000;
+                                       -fx-font-family: 'Comic Sans MS';
+                                       -fx-font-size: 14;
+                                       -fx-font-weight: bold;
+                                       -fx-min-height: 40;
+                                       -fx-effect: dropshadow(three-pass-box, rgba(255,215,0,0.8), 15, 0.5, 0, 0);
+                                       -fx-border-color: #DAA520;
+                                       -fx-border-width: 2;
+                                       -fx-background-radius: 5;
+                                       -fx-border-radius: 5;
+                    """);
+        });
+
+        back.setOnMouseExited(action -> {
+            //GameManager.get().audioManager().playSound("");
+            back.setStyle("""
+                    -fx-background-color: #FFD700;
+                                      -fx-cursor: hand;
+                                      -fx-text-fill: #000000;
+                                      -fx-font-family: 'Comic Sans MS';
+                                      -fx-font-size: 14;
+                                      -fx-font-weight: bold;
+                                      -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0, 0, 0);
+                    """);
         });
     }
 }

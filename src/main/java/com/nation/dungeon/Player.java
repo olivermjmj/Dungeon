@@ -1,9 +1,12 @@
 package com.nation.dungeon;
 
+import com.nation.dungeon.merchant.Item;
+
 public class Player extends Character{
 
     private String password;
     private final double defenceModifier = 0.5;
+    private Item weapon;
 
     public Player(int level, String username, String password, double strength, double currentHp, double maxHp, double defence, double currentMana, double maxMana, long money) {
         super(level, username, strength, currentHp, maxHp, defence, currentMana, maxMana, money);
@@ -58,5 +61,13 @@ public class Player extends Character{
         if(password != null && password.length() >= 4) {
             this.password = password;
         }
+    }
+
+    public void setWeapon(Item weapon) {
+        this.weapon = weapon;
+    }
+
+    public Item getWeapon() {
+        return this.weapon;
     }
 }

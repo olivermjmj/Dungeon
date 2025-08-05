@@ -52,5 +52,21 @@ public class ItemCombiner {
         for(int i = 0; i < names.length && i < items.size(); i++) {
             items.get(i).setDescription(names[i]);
         }
-     }
+    }
+
+    //sets the weapons default prices
+    public void setDefaultWeaponPrices() {
+        int[] prices = {
+                10,
+                30,
+                60,
+                100,
+                200,
+                500
+        };
+
+        for(int i = 0; i < prices.length && i < items.size(); i++) {
+            items.get(i).setPrice(prices[i]);
+        }
+    }
 }

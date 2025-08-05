@@ -18,7 +18,7 @@ public class DatabaseManager {
 
         if(!doesUserExist(username, password) && ((username != null && password != null) && username.length() >= 4 && username.length() <= 10) && (password.length() >= 4 && password.length() <= 10)) {
 
-            String sql = "INSERT INTO Users (level, username, password, strength, currentHP, maxHP, defence, currentMana, maxMana, money) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO Users (level, username, password, strength, currentHP, maxHP, defence, currentMana, maxMana, money, weapon) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             try(PreparedStatement stmt = conn.prepareStatement(sql)) {
 
@@ -31,6 +31,7 @@ public class DatabaseManager {
                 double defaultCurrentMana = 100;
                 double defaultMaxMana = 100;
                 long defaultMoney = 1000;
+                String defaultWeapon = "NONE";
 
                 stmt.setDouble(1, defaultLevel);
                 stmt.setString(2, username);
@@ -42,6 +43,7 @@ public class DatabaseManager {
                 stmt.setDouble(8, defaultCurrentMana);
                 stmt.setDouble(9, defaultMaxMana);
                 stmt.setLong(10, defaultMoney);
+                stmt.setString(11, defaultWeapon);
 
                 stmt.executeUpdate();
             } catch (SQLException e) {
@@ -73,7 +75,8 @@ public class DatabaseManager {
                          defence DOUBLE NOT NULL,
                          currentMana DOUBLE NOT NULL,
                          maxMana DOUBLE NOT NULL,
-                         money INTEGER NOT NULL
+                         money INTEGER NOT NULL,
+                         weapon VARCHAR(12) NOT NULL
                          );
                          """;
             stmt.execute(sql);
@@ -83,9 +86,9 @@ public class DatabaseManager {
     }
 
     //setters
-    public void setUserStats(int level, double strength, double currentHP, double maxHP, double defence, double currentMana, double maxMana, long money, String currentUserName) {
+    public void setUserStats(int level, double strength, double currentHP, double maxHP, double defence, double currentMana, double maxMana, long money, String currentUserName, String userWeapon) {
 
-        String sql = "UPDATE Users SET level = ?, strength = ?, currentHP = ?, maxHP = ?, defence = ?, currentMana = ?, maxMana = ?, money = ? WHERE username = ?";
+        String sql = "UPDATE Users SET level = ?, strength = ?, currentHP = ?, maxHP = ?, defence = ?, currentMana = ?, maxMana = ?, money = ?, weapon = ? WHERE username = ?";
 
         try(PreparedStatement stmt = conn.prepareStatement(sql)) {
 
@@ -97,7 +100,8 @@ public class DatabaseManager {
             stmt.setDouble(6, currentMana);
             stmt.setDouble(7, maxMana);
             stmt.setLong(8, money);
-            stmt.setString(9, currentUserName);
+            stmt.setString(9, userWeapon);
+            stmt.setString(10, currentUserName);
 
             stmt.executeUpdate();
         } catch (SQLException e) {
@@ -222,6 +226,21 @@ public class DatabaseManager {
             stmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Error, no userMoney to update: " + e.getMessage());
+        }
+    }
+
+    public void setUserWeapon(String weapon, String currentUserName) {
+
+        String sql = "UPDATE Users SET weapon = ? WHERE username = ?";
+
+        try(PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, weapon);
+            stmt.setString(2, currentUserName);
+
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Error, no userWeapon to update: " + e.getMessage());
         }
     }
 
@@ -352,6 +371,20 @@ public class DatabaseManager {
             System.out.println("Error, couldn't get DB money: " +  e.getMessage());
         }
         return 0;
+    }
+
+    public String getUserWeapon(String currentUsersWeapon) {
+
+        String sql = "SELECT weapon FROM Users WHERE username = ?";
+
+        try(PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, currentUsersWeapon);
+            ResultSet rs = stmt.executeQuery();
+            return rs.getString("weapon");
+        } catch (SQLException e) {
+            System.out.println("Error, couldn't get DB usersWeapon: " +  e.getMessage());
+        }
+        return null;
     }
 
     public boolean doesUserExist(String username, String password) {

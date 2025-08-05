@@ -3,8 +3,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.text.Text?>
 <StackPane fx:id="root" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nation.dungeon.controllers.SmithyMenu_Controller">
 
     <!-- background -->
@@ -30,6 +30,9 @@
             <Text fx:id="sword3Description" layoutX="261.0" layoutY="194.0" />
             <Text fx:id="sword4Description" layoutX="261.0" layoutY="194.0" />
             <Text fx:id="sword5Description" layoutX="261.0" layoutY="194.0" />
+
+            <Button fx:id="buyButton" layoutX="295.0" layoutY="177.0" mnemonicParsing="false" text="Button" />
+            <Button fx:id="back" layoutX="1192.0" layoutY="602.0" mnemonicParsing="false" text="Button" />
         </children>
     </Pane>
 
